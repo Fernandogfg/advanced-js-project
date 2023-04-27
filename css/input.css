@@ -1,0 +1,17 @@
+@media screen and (max-width: 810px) {
+  .input {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 811px) {
+  .input {
+    width: 50%;
+  }
+}
+.input {
+  height: 5rem;
+  border-radius: 2.5rem;
+  border: 1px solid rgb(115, 26, 198);
+  padding-left: 3rem;
+  font-size: x-large;
+}

@@ -1,0 +1,25 @@
+@import url(constantes.css);
+@import url(grid.css);
+@import url(header.css);
+@import url(input.css);
+
+#body {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  gap: 2rem;
+  justify-items: center;
+  box-sizing: border-box;
+}
+html {
+  background-color: white;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  width: 100vw;
+  padding: 10rem 1rem;
+  margin: 0;
+}
