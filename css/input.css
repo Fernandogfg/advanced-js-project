@@ -11,13 +11,13 @@
 .input {
   height: 5rem;
   border-radius: 2.5rem;
-  border: 1px solid rgb(115, 26, 198);
+  border: 1px solid rgb(205, 117, 17);
   padding-left: 3rem;
   font-size: x-large;
 }
 .input:focus {
-  outline: 1px solid rgb(115, 26, 198);
+  outline: 1px solid rgb(205, 117, 17);
 }
 .input::placeholder {
-  color: rgb(115, 26, 198);
+  color: rgb(205, 117, 17);
 }
