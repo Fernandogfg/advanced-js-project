@@ -1,14 +1,29 @@
 .container-btn {
-  display: flex;
-  width: 80vw;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
 }
 
-.container-btn input {
-  width: 90%;
-}
-
-button {
+#enviar {
   background-color: rgb(205, 117, 17);
+  border-radius: 1rem;
+  border: 0.1rem solid black;
+  width: 16rem;
+  height: 5rem;
+}
+@media screen and (min-width: 811px) {
+  .container-btn {
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    gap: 1rem;
+    justify-content: center;
+  }
+  #enviar {
+    background-color: rgb(205, 117, 17);
+    border-radius: 1rem;
+    border: 0.1rem solid black;
+    width: 8%;
+    height: 100%;
+  }
 }

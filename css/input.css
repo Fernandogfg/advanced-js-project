@@ -5,9 +5,20 @@
   padding-left: 3rem;
   font-size: x-large;
 }
+
 .input:focus {
   outline: 1px solid rgb(205, 117, 17);
 }
+
 .input::placeholder {
   color: rgb(205, 117, 17);
+}
+
+.container-btn input {
+  width: 90%;
+}
+@media screen and (min-width: 811px) {
+  .container-btn input {
+    width: 40%;
+  }
 }
