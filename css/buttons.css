@@ -1,16 +1,23 @@
 .container-btn {
   display: grid;
+  width: 100%;
   justify-items: center;
   gap: 2rem;
+  padding: 1rem;
 }
 
 #enviar {
   background-color: rgb(205, 117, 17);
   border-radius: 1rem;
   border: 0.1rem solid black;
-  width: 16rem;
+  width: 10rem;
   height: 5rem;
+  cursor: pointer;
 }
+#enviar:active {
+  background-color: rgb(178, 102, 14);
+}
+
 @media screen and (min-width: 811px) {
   .container-btn {
     display: flex;

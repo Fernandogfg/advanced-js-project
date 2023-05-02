@@ -3,7 +3,7 @@
 @import url(header.css);
 @import url(input.css);
 @import url(buttons.css);
-
+*{outline: 1px solid rgba(255, 0, 0, 0.302);}
 #body {
   display: grid;
   gap: 3rem;
@@ -22,4 +22,7 @@ body {
 }
 * {
   box-sizing: border-box;
+}
+.inativo{
+  display: none;
 }
