@@ -16,24 +16,27 @@ const criaPost = function (link) {
   };
   return objData;
 };
+
 export function EnviaLink(link) {
-  try{
-    if(link.value == ""){
-      throw new Error('Preencha o campo com uma URL valida')
+  try {
+    if (link == "") {
+      throw new Error("Preencha o campo com uma URL valida");
     }
     fetch("https://api.short.io/links", criaPost(link))
-    .then((response) => {
-      if(response.ok && response.status == 200){
-        return response.json();
-      }
-      throw new Error('Algo deu errado, tente novamente');
-    })
-    .then((response) => {
-      console.log(response);
-      mostraLink(response.shortURL)
-    }).catch((error)=>{
-      alert(error)
-    });
+      .then((response) => {
+        if (response.ok && response.status == 200) {
+          return response.json();
+        }
+        throw new Error("Algo deu errado, tente novamente");
+      })
+      .then((response) => {
+        console.log(response);
+        mostraLink(response.shortURL);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  } catch (e) {
+    console.log(e);
   }
-  
 }
