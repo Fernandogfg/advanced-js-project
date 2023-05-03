@@ -17,13 +17,23 @@ const criaPost = function (link) {
   return objData;
 };
 export function EnviaLink(link) {
-  fetch("https://api.short.io/links", criaPost(link))
+  try{
+    if(link.value == ""){
+      throw new Error('Preencha o campo com uma URL valida')
+    }
+    fetch("https://api.short.io/links", criaPost(link))
     .then((response) => {
-      console.log(response);
-      return response.json();
+      if(response.ok && response.status == 200){
+        return response.json();
+      }
+      throw new Error('Algo deu errado, tente novamente');
     })
     .then((response) => {
       console.log(response);
       mostraLink(response.shortURL)
+    }).catch((error)=>{
+      alert(error)
     });
+  }
+  
 }
