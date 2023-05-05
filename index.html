@@ -26,14 +26,28 @@
           placeholder="Seu URL aqui..."
           id="input-url"
         />
-        <button id="enviar"><img id='enviarIcon'src="assets/icons/finishedSign.svg" /><span class="loader inativo"></span></button>
+        <button id="enviar">
+          <img id="enviarIcon" src="assets/icons/finishedSign.svg" /><span
+            class="loader inativo"
+          ></span>
+        </button>
       </div>
-      <div class="inativo" id="container-link"><a id="link" ></a></div>
+      <div class="inativo" id="container-link"><a id="link"></a></div>
 
       <div id="compartilhar">
-        <button id="copiar" class="btn-opt"><img src="assets/icons/copy.svg"></button>
-        <button id="share" class="btn-opt"><img src="assets/icons/share.svg"></button>
-        <button id='qr-code'class="btn-opt"><img src="assets/icons/qr.svg"></button>
+        <div id="container-btn">
+          <button title="Copiar" id="copiar" class="btn-opt">
+            <img src="assets/icons/copy.svg" />
+          </button>
+          <button title="Compartilhar" id="share" class="btn-opt">
+            <img src="assets/icons/share.svg" />
+          </button>
+          <button title="Codigo QR" id="qr-code" class="btn-opt">
+            <img src="assets/icons/qr.svg" />
+          </button>
+        </div>
+
+        <div id="sucesso-copiar"><img src="assets/icons/check.svg"> Copiado com sucesso!</div>
       </div>
     </div>
 

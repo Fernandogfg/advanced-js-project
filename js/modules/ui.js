@@ -24,3 +24,8 @@ export function mostraResposta(link) {
 export function limpaInputLink (){
     inputUrl.value = ''
 }
+// export function copiaLink(el){
+//   el.select()
+//   el.set
+  
+// }

@@ -4,9 +4,9 @@
 @import url(input.css);
 @import url(buttons.css);
 @import url(results.css);
-* {
+/* * {
   outline: 1px solid rgba(255, 0, 0, 0.302);
-}
+} */
 
 #body {
   display: grid;
@@ -55,6 +55,6 @@ body {
     padding-left: 0rem;
   }
   #compartilhar {
-    width: 30%;
+    width: 40%;
   }
 }

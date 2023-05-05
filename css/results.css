@@ -7,3 +7,13 @@
   font-size: x-large;
   align-items: center;
 }
+#sucesso-copiar {
+  width: 70%;
+  background-color: rgba(29, 255, 29, 0.608);
+  padding: 2rem 0;
+  justify-self: center;
+  text-align: center;
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+}

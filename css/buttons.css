@@ -38,10 +38,15 @@
   }
 }
 #compartilhar {
-  padding: 0 2rem;
+  display: grid;
   width: 100%;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+#container-btn {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .btn-opt {
   padding: 0;
