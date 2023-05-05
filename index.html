@@ -26,9 +26,15 @@
           placeholder="Seu URL aqui..."
           id="input-url"
         />
-        <button id="enviar"><img src="assets/icons/finishedSign.svg" /></button>
+        <button id="enviar"><img id='enviarIcon'src="assets/icons/finishedSign.svg" /><span class="loader inativo"></span></button>
       </div>
-      <div id="resultados"></div>
+      <div class="inativo" id="container-link"><a id="link" ></a></div>
+
+      <div id="compartilhar">
+        <button id="copiar" class="btn-opt"><img src="assets/icons/copy.svg"></button>
+        <button id="share" class="btn-opt"><img src="assets/icons/share.svg"></button>
+        <button id='qr-code'class="btn-opt"><img src="assets/icons/qr.svg"></button>
+      </div>
     </div>
 
     <script src="js/index.js" type="module"></script>

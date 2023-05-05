@@ -1,5 +1,5 @@
 import { config } from "./config.js";
-import { mostraLink } from "./ui.js";
+import {alternaBtnEnviar, limpaInputLink, mostraResposta } from "./ui.js";
 
 const criaPost = function (link) {
   const objData = {
@@ -19,24 +19,32 @@ const criaPost = function (link) {
 
 export function EnviaLink(link) {
   try {
+    alternaBtnEnviar()
     if (link == "") {
       throw new Error("Preencha o campo com uma URL valida");
     }
     fetch("https://api.short.io/links", criaPost(link))
       .then((response) => {
         if (response.ok && response.status == 200) {
+          
           return response.json();
         }
         throw new Error("Algo deu errado, tente novamente");
       })
       .then((response) => {
         console.log(response);
-        mostraLink(response.shortURL);
+        mostraResposta(response.shortURL);
+        alternaBtnEnviar()
+        limpaInputLink()
       })
       .catch((error) => {
+        alternaBtnEnviar()
         alert(error);
+        limpaInputLink()
       });
   } catch (e) {
-    console.log(e);
+    alternaBtnEnviar()
+    alert(e);
+    limpaInputLink()
   }
 }

@@ -3,7 +3,11 @@
 @import url(header.css);
 @import url(input.css);
 @import url(buttons.css);
-*{outline: 1px solid rgba(255, 0, 0, 0.302);}
+@import url(results.css);
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.302);
+}
+
 #body {
   display: grid;
   gap: 3rem;
@@ -23,6 +27,34 @@ body {
 * {
   box-sizing: border-box;
 }
-.inativo{
-  display: none;
+.inativo {
+  display: none !important;
+}
+@media screen and (min-width: 811px) {
+  .container-btn {
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    gap: 1rem;
+    justify-content: center;
+  }
+  #enviar {
+    background-color: rgb(205, 117, 17);
+    border-radius: 1rem;
+    border: 0.1rem solid black;
+    width: 8%;
+    height: 100%;
+  }
+  .container-btn input {
+    width: 40%;
+  }
+  #opt {
+    display: none;
+  }
+  header h2 {
+    padding-left: 0rem;
+  }
+  #compartilhar {
+    width: 30%;
+  }
 }

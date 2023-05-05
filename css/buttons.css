@@ -18,19 +18,42 @@
   background-color: rgb(178, 102, 14);
 }
 
-@media screen and (min-width: 811px) {
-  .container-btn {
-    display: flex;
-    padding: 1rem;
-    width: 100%;
-    gap: 1rem;
-    justify-content: center;
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 5px solid #fff;
+  border-bottom-color: #ff3d00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
   }
-  #enviar {
-    background-color: rgb(205, 117, 17);
-    border-radius: 1rem;
-    border: 0.1rem solid black;
-    width: 8%;
-    height: 100%;
+  100% {
+    transform: rotate(360deg);
   }
+}
+#compartilhar {
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-opt {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: rgb(205, 102, 14);
+}
+.btn-opt img {
+  height: 4rem;
+}
+.btn-opt:active {
+  background-color: rgb(178, 102, 14);
 }

@@ -17,8 +17,4 @@
 .container-btn input {
   width: 90%;
 }
-@media screen and (min-width: 811px) {
-  .container-btn input {
-    width: 40%;
-  }
-}
+

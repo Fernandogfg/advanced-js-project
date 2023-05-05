@@ -20,11 +20,3 @@ header h2 {
   height: 16rem;
   justify-self: center;
 }
-@media screen and (min-width: 811px) {
-  #opt {
-    display: none;
-  }
-  header h2 {
-    padding-left: 0rem;
-  }
-}
