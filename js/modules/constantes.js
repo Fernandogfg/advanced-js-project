@@ -5,6 +5,7 @@ export const btnRedes = document.getElementById('share')
 export const reddit = document.getElementById('reddit')
 export const twitter = document.getElementById('twitter')
 export const whatsapp = document.getElementById('whatsapp')
+export const btnQRCode = document.getElementById('qr-code')
 
 //INPUTS
 export const inputUrl = document.getElementById('input-url')
@@ -14,3 +15,4 @@ export const linkEncurtado = document.getElementById('link')
 export const containerBtnCompartilhar = document.getElementById('container-btn')
 export const sucessoCopiar = document.getElementById('sucesso-copiar')
 export const redesSociais = document.getElementById('redesSociais')
+export const imgQRCode = document.getElementById('QRcode')

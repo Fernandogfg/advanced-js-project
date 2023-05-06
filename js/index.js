@@ -1,5 +1,5 @@
-import { EnviaLink } from "./modules/api.js";
-import { btnCopiar, btnEnviar, btnRedes, inputUrl, linkEncurtado } from "./modules/constantes.js";
+import { EnviaLink, gerarQR } from "./modules/api.js";
+import { btnCopiar, btnEnviar, btnQRCode, btnRedes, inputUrl, linkEncurtado } from "./modules/constantes.js";
 import { compartilharLink, copiaLink, exibeMsgCopiar, exibeRedes} from "./modules/ui.js";
 
 
@@ -14,4 +14,7 @@ btnCopiar.addEventListener('click', function(){
 btnRedes.addEventListener('click', function(){
   exibeRedes()
   compartilharLink()
+})
+btnQRCode.addEventListener('click', function(){
+  gerarQR()
 })

@@ -1,5 +1,11 @@
 import { config } from "./config.js";
-import {alternaBtnEnviar, limpaInputLink, mostraOpt, mostraResposta } from "./ui.js";
+import { imgQRCode } from "./constantes.js";
+import {
+  alternaBtnEnviar,
+  limpaInputLink,
+  mostraOpt,
+  mostraResposta,
+} from "./ui.js";
 
 const criaPost = function (link) {
   const objData = {
@@ -16,17 +22,17 @@ const criaPost = function (link) {
   };
   return objData;
 };
-
+let linkIdString = "";
 export function EnviaLink(link) {
   try {
-    alternaBtnEnviar()
+    alternaBtnEnviar();
     if (link == "") {
       throw new Error("Preencha o campo com uma URL valida");
     }
     fetch("https://api.short.io/links", criaPost(link))
       .then((response) => {
         if (response.ok && response.status == 200) {
-          
+          console.log(response);
           return response.json();
         }
         throw new Error("Algo deu errado, tente novamente");
@@ -34,19 +40,42 @@ export function EnviaLink(link) {
       .then((response) => {
         console.log(response);
         mostraResposta(response.shortURL);
-        alternaBtnEnviar()
-        limpaInputLink()
-        mostraOpt()
+        alternaBtnEnviar();
+        limpaInputLink();
+        mostraOpt();
+        linkIdString = response.idString;
       })
       .catch((error) => {
-        alternaBtnEnviar()
+        alternaBtnEnviar();
         alert(error);
-        limpaInputLink()
-        
+        limpaInputLink();
       });
   } catch (e) {
-    alternaBtnEnviar()
+    alternaBtnEnviar();
     alert(e);
-    limpaInputLink()
+    limpaInputLink();
   }
+}
+
+const optQRCode = function () {
+  const options = {
+    method: "POST",
+    headers: {
+      accept: "image/png",
+      "content-type": "application/json",
+      authorization: `${config.API_KEY}`,
+    },
+    body: JSON.stringify({ type: "png" }),
+  };
+  return options;
+};
+
+export function gerarQR() {
+  fetch(`https://api.short.io/links/qr/${linkIdString}`, optQRCode())
+    .then((response) => response.blob())
+    .then((response) => {
+      const imgURL = URL.createObjectURL(response)
+      imgQRCode.src = `${imgURL}`
+    })
+    .catch((err) => console.error(err));
 }
