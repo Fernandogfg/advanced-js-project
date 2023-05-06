@@ -62,3 +62,15 @@
 .btn-opt:active {
   background-color: rgb(178, 102, 14);
 }
+#redesSociais {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+}
+#redesSociais img {
+  background-color: rgb(205, 102, 14);
+  border-radius: 1rem;
+  height: 4rem;
+  cursor: pointer;
+}

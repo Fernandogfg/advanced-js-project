@@ -1,5 +1,5 @@
 import { config } from "./config.js";
-import {alternaBtnEnviar, limpaInputLink, mostraResposta } from "./ui.js";
+import {alternaBtnEnviar, limpaInputLink, mostraOpt, mostraResposta } from "./ui.js";
 
 const criaPost = function (link) {
   const objData = {
@@ -36,11 +36,13 @@ export function EnviaLink(link) {
         mostraResposta(response.shortURL);
         alternaBtnEnviar()
         limpaInputLink()
+        mostraOpt()
       })
       .catch((error) => {
         alternaBtnEnviar()
         alert(error);
         limpaInputLink()
+        
       });
   } catch (e) {
     alternaBtnEnviar()

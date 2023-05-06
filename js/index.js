@@ -1,15 +1,18 @@
 import { EnviaLink } from "./modules/api.js";
-import { btnCopiar, btnEnviar, inputUrl, linkEncurtado } from "./modules/constantes.js";
+import { btnCompartilhar, btnCopiar, btnEnviar, btnRedes, inputUrl, linkEncurtado } from "./modules/constantes.js";
+import { copiaLink, exibeMsgCopiar, exibeRedes} from "./modules/ui.js";
 
 
 btnEnviar.addEventListener("click", function () {
   EnviaLink(inputUrl.value);
 });
 btnCopiar.addEventListener('click', function(){
-  let inputCopiado = document.createElement('input')
-  inputCopiado.style.display = 'none'
-  inputCopiado.value = linkEncurtado.textContent
-  inputCopiado.select()
-  inputCopiado.setSelectionRange(0, 99999)
-  navigator.clipboard.writeText(inputCopiado.value)
+  copiaLink()
+  exibeMsgCopiar()
+})
+btnCompartilhar.addEventListener('click', function(){
+  
+})
+btnRedes.addEventListener('click', function(){
+  exibeRedes()
 })
