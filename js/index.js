@@ -1,6 +1,6 @@
 import { EnviaLink } from "./modules/api.js";
-import { btnCompartilhar, btnCopiar, btnEnviar, btnRedes, inputUrl, linkEncurtado } from "./modules/constantes.js";
-import { copiaLink, exibeMsgCopiar, exibeRedes} from "./modules/ui.js";
+import { btnCopiar, btnEnviar, btnRedes, inputUrl, linkEncurtado } from "./modules/constantes.js";
+import { compartilharLink, copiaLink, exibeMsgCopiar, exibeRedes} from "./modules/ui.js";
 
 
 btnEnviar.addEventListener("click", function () {
@@ -10,9 +10,8 @@ btnCopiar.addEventListener('click', function(){
   copiaLink()
   exibeMsgCopiar()
 })
-btnCompartilhar.addEventListener('click', function(){
-  
-})
+
 btnRedes.addEventListener('click', function(){
   exibeRedes()
+  compartilharLink()
 })

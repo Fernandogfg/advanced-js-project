@@ -6,6 +6,9 @@ import {
   containerBtnCompartilhar,
   sucessoCopiar,
   redesSociais,
+  reddit,
+  twitter,
+  whatsapp,
 } from "./constantes.js";
 
 export function alternaBtnEnviar() {
@@ -49,4 +52,13 @@ export function exibeMsgCopiar() {
 }
 export function exibeRedes (){
   redesSociais.classList.toggle('inativo')
+}
+
+export function compartilharLink(){
+  reddit.parentElement.setAttribute('href', `https://reddit.com/submit?url=${linkEncurtado.textContent}`)
+  reddit.parentElement.setAttribute('target', 'blank')
+  twitter.parentElement.setAttribute('href', `https://twitter.com/share?url=${linkEncurtado.textContent}`)
+  twitter.parentElement.setAttribute('target', 'blank')
+  whatsapp.parentElement.setAttribute('href', `https://wa.me/?text=${linkEncurtado.textContent}`)
+  whatsapp.parentElement.setAttribute('target', 'blank')
 }
