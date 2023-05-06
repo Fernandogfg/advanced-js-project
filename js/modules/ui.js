@@ -9,6 +9,7 @@ import {
   reddit,
   twitter,
   whatsapp,
+  imgQRCode,
 } from "./constantes.js";
 
 export function alternaBtnEnviar() {
@@ -50,15 +51,36 @@ export function exibeMsgCopiar() {
     }, 1000);
   }
 }
-export function exibeRedes (){
-  redesSociais.classList.toggle('inativo')
+export function exibeRedes() {
+  if(!imgQRCode.classList.contains('inativo')){
+    imgQRCode.classList.add('inativo')
+  }
+  redesSociais.classList.toggle("inativo");
 }
 
-export function compartilharLink(){
-  reddit.parentElement.setAttribute('href', `https://reddit.com/submit?url=${linkEncurtado.textContent}`)
-  reddit.parentElement.setAttribute('target', 'blank')
-  twitter.parentElement.setAttribute('href', `https://twitter.com/share?url=${linkEncurtado.textContent}`)
-  twitter.parentElement.setAttribute('target', 'blank')
-  whatsapp.parentElement.setAttribute('href', `https://wa.me/?text=${linkEncurtado.textContent}`)
-  whatsapp.parentElement.setAttribute('target', 'blank')
+export function compartilharLink() {
+  reddit.parentElement.setAttribute(
+    "href",
+    `https://reddit.com/submit?url=${linkEncurtado.textContent}`
+  );
+  reddit.parentElement.setAttribute("target", "blank");
+  twitter.parentElement.setAttribute(
+    "href",
+    `https://twitter.com/share?url=${linkEncurtado.textContent}`
+  );
+  twitter.parentElement.setAttribute("target", "blank");
+  whatsapp.parentElement.setAttribute(
+    "href",
+    `https://wa.me/?text=${linkEncurtado.textContent}`
+  );
+  whatsapp.parentElement.setAttribute("target", "blank");
+}
+
+export function exibeCodigoQR(codigo) {
+  if (!redesSociais.classList.contains("inativo")) {
+    redesSociais.classList.add("inativo");
+  }
+  const imgURL = URL.createObjectURL(codigo);
+  imgQRCode.src = `${imgURL}`;
+  imgQRCode.classList.remove('inativo')
 }

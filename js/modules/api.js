@@ -2,6 +2,7 @@ import { config } from "./config.js";
 import { imgQRCode } from "./constantes.js";
 import {
   alternaBtnEnviar,
+  exibeCodigoQR,
   limpaInputLink,
   mostraOpt,
   mostraResposta,
@@ -32,13 +33,11 @@ export function EnviaLink(link) {
     fetch("https://api.short.io/links", criaPost(link))
       .then((response) => {
         if (response.ok && response.status == 200) {
-          console.log(response);
           return response.json();
         }
         throw new Error("Algo deu errado, tente novamente");
       })
       .then((response) => {
-        console.log(response);
         mostraResposta(response.shortURL);
         alternaBtnEnviar();
         limpaInputLink();
@@ -74,8 +73,7 @@ export function gerarQR() {
   fetch(`https://api.short.io/links/qr/${linkIdString}`, optQRCode())
     .then((response) => response.blob())
     .then((response) => {
-      const imgURL = URL.createObjectURL(response)
-      imgQRCode.src = `${imgURL}`
+      exibeCodigoQR(response);
     })
-    .catch((err) => console.error(err));
+    .catch((err) => alert(err));
 }
