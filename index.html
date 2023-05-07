@@ -16,10 +16,11 @@
     <div id="body">
       <header>
         <h2>Encurtador de URL</h2>
-        <img src="assets/icons/cog.png" id="opt" />
+        <img src="assets/icons/cog.png" title="Opções" id="opt" />
       </header>
       <img src="assets/icons/logo.jpg" id="logo" />
-      <div class="container-btn">
+      <section id="encurtamento">
+        <div class="container-btn">
         <input
           type="text"
           class="input"
@@ -65,7 +66,10 @@
           /></a>
         </div>
       </div>
-      <img id="QRcode" class="inativo"/>
+      <img id="QRcode" class="inativo" />
+      <a id="downloadQR" class="inativo" download="QRCode.png">Download PNG</a>
+      </section>
+      
     </div>
 
     <script src="js/index.js" type="module"></script>

@@ -6,6 +6,7 @@ export const reddit = document.getElementById('reddit')
 export const twitter = document.getElementById('twitter')
 export const whatsapp = document.getElementById('whatsapp')
 export const btnQRCode = document.getElementById('qr-code')
+export const downloadQR = document.getElementById('downloadQR')
 
 //INPUTS
 export const inputUrl = document.getElementById('input-url')

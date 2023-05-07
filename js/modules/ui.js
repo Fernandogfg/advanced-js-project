@@ -10,6 +10,7 @@ import {
   twitter,
   whatsapp,
   imgQRCode,
+  downloadQR,
 } from "./constantes.js";
 
 export function alternaBtnEnviar() {
@@ -52,8 +53,9 @@ export function exibeMsgCopiar() {
   }
 }
 export function exibeRedes() {
-  if(!imgQRCode.classList.contains('inativo')){
-    imgQRCode.classList.add('inativo')
+  if (!imgQRCode.classList.contains("inativo")) {
+    imgQRCode.classList.add("inativo");
+    downloadQR.classList.add('inativo')
   }
   redesSociais.classList.toggle("inativo");
 }
@@ -82,5 +84,7 @@ export function exibeCodigoQR(codigo) {
   }
   const imgURL = URL.createObjectURL(codigo);
   imgQRCode.src = `${imgURL}`;
-  imgQRCode.classList.remove('inativo')
+  imgQRCode.classList.remove("inativo");
+  downloadQR.setAttribute("href", `${imgQRCode.src}`);
+  downloadQR.classList.remove('inativo')
 }
