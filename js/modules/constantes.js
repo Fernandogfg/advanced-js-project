@@ -7,6 +7,7 @@ export const twitter = document.getElementById('twitter')
 export const whatsapp = document.getElementById('whatsapp')
 export const btnQRCode = document.getElementById('qr-code')
 export const downloadQR = document.getElementById('downloadQR')
+export const btnOpt = document.getElementById('opt')
 
 //INPUTS
 export const inputUrl = document.getElementById('input-url')
@@ -17,3 +18,5 @@ export const containerBtnCompartilhar = document.getElementById('container-btn')
 export const sucessoCopiar = document.getElementById('sucesso-copiar')
 export const redesSociais = document.getElementById('redesSociais')
 export const imgQRCode = document.getElementById('QRcode')
+export const encurtamento = document.getElementById('encurtamento')
+export const tabelaLinks = document.getElementById('resultadoTabela')

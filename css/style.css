@@ -4,6 +4,7 @@
 @import url(input.css);
 @import url(buttons.css);
 @import url(results.css);
+@import url(table.css);
 /* * {
   outline: 1px solid rgba(255, 0, 0, 0.302);
 } */
@@ -39,6 +40,15 @@ body {
   padding: 0;
   margin: 0;
 }
+#gerenciamento {
+  display: grid;
+  gap: 3rem;
+  justify-items: center;
+  width: 100%;
+}
+footer {
+  height: 10rem;
+}
 @media screen and (min-width: 811px) {
   .container-btn {
     display: flex;
@@ -63,5 +73,8 @@ body {
   }
   #compartilhar {
     width: 40%;
+  }
+  .lista {
+    width: 60%;
   }
 }

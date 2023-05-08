@@ -3,6 +3,7 @@ import { imgQRCode } from "./constantes.js";
 import {
   alternaBtnEnviar,
   exibeCodigoQR,
+  imprimeLista,
   limpaInputLink,
   mostraOpt,
   mostraResposta,
@@ -77,3 +78,17 @@ export function gerarQR() {
     })
     .catch((err) => alert(err));
 }
+const optionsListaLinks = {method: 'GET', headers: {accept: 'application/json',
+authorization: `${config.API_KEY}`}};
+
+
+export function listaLinks (){
+  fetch('https://api.short.io/api/links?domain_id=710819&limit=5&dateSortOrder=desc', optionsListaLinks)
+  .then(response => response.json())
+  .then((response)=>{
+    console.log(response);
+    imprimeLista(response)
+  })
+  .catch(err => console.error(err));
+}
+listaLinks()

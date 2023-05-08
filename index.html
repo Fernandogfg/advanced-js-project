@@ -15,63 +15,84 @@
   <body>
     <div id="body">
       <header>
-        <h2>Encurtador de URL</h2>
+        <h1>Encurtador de URL</h1>
         <img src="assets/icons/cog.png" title="Opções" id="opt" />
       </header>
       <img src="assets/icons/logo.jpg" id="logo" />
       <section id="encurtamento">
         <div class="container-btn">
-        <input
-          type="text"
-          class="input"
-          placeholder="Seu URL aqui..."
-          id="input-url"
-        />
-        <button id="enviar">
-          <img id="enviarIcon" src="assets/icons/finishedSign.svg" /><span
-            class="loader inativo"
-          ></span>
-        </button>
-      </div>
-      <div class="inativo" id="container-link"><a id="link"></a></div>
+          <input
+            type="text"
+            class="input"
+            placeholder="Seu URL aqui..."
+            id="input-url"
+          />
+          <button id="enviar">
+            <img id="enviarIcon" src="assets/icons/finishedSign.svg" /><span
+              class="loader inativo"
+            ></span>
+          </button>
+        </div>
+        <div class="inativo" id="container-link"><a id="link"></a></div>
 
-      <div id="compartilhar">
-        <div id="container-btn" class="inativo">
-          <button title="Copiar" id="copiar" class="btn-opt">
-            <img src="assets/icons/copy.svg" />
-          </button>
-          <button title="Compartilhar" id="share" class="btn-opt">
-            <img src="assets/icons/share.svg" />
-          </button>
-          <button title="Codigo QR" id="qr-code" class="btn-opt">
-            <img src="assets/icons/qr.svg" />
-          </button>
-        </div>
+        <div id="compartilhar">
+          <div id="container-btn" class="inativo">
+            <button title="Copiar" id="copiar" class="btn-opt">
+              <img src="assets/icons/copy.svg" />
+            </button>
+            <button title="Compartilhar" id="share" class="btn-opt">
+              <img src="assets/icons/share.svg" />
+            </button>
+            <button title="Codigo QR" id="qr-code" class="btn-opt">
+              <img src="assets/icons/qr.svg" />
+            </button>
+          </div>
 
-        <div id="sucesso-copiar" class="inativo">
-          <img src="assets/icons/check.svg" /> Copiado com sucesso!
+          <div id="sucesso-copiar" class="inativo">
+            <img src="assets/icons/check.svg" /> Copiado com sucesso!
+          </div>
+          <div id="redesSociais" class="inativo">
+            <a
+              ><img src="assets/icons/reddit.svg" id="reddit" title="Reddit"
+            /></a>
+            <a
+              ><img src="assets/icons/twitter.svg" id="twitter" title="Twitter"
+            /></a>
+            <a
+              ><img
+                src="assets/icons/whatsapp.svg"
+                id="whatsapp"
+                title="Whatsapp"
+            /></a>
+          </div>
         </div>
-        <div id="redesSociais" class="inativo">
-          <a
-            ><img src="assets/icons/reddit.svg" id="reddit" title="Reddit"
-          /></a>
-          <a
-            ><img src="assets/icons/twitter.svg" id="twitter" title="Twitter"
-          /></a>
-          <a
-            ><img
-              src="assets/icons/whatsapp.svg"
-              id="whatsapp"
-              title="Whatsapp"
-          /></a>
-        </div>
-      </div>
-      <img id="QRcode" class="inativo" />
-      <a id="downloadQR" class="inativo" download="QRCode.png">Download PNG</a>
+        <img id="QRcode" class="inativo" />
+        <a id="downloadQR" class="inativo" download="QRCode.png"
+          >Download PNG</a
+        >
       </section>
-      
+      <section id="gerenciamento">
+        <div id="gerenciamentoTitulo">
+          <h2>Gerenciar Links</h2>
+          <p id="dominio">asdas</p>
+        </div>
+        <table class="lista">
+          <thead>
+            
+            <tr>
+              <td id="link-lista"><p>Link Encurtado</p> </td>
+              <td id="linkOriginal-lista"><p>Link Original</p></td>
+              <td id="dataHora">Data/Hora</td>
+              <td id="acao">Ação</td>
+            </tr>
+          </thead>
+          <tbody id="resultadoTabela">
+            
+          </tbody>
+        </table>
+      </section>
     </div>
-
+    <footer></footer>
     <script src="js/index.js" type="module"></script>
   </body>
 </html>

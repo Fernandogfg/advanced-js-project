@@ -1,0 +1,47 @@
+.lista {
+  margin-top: 2.5rem;
+  width: 90%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.626);
+}
+.lista td {
+  padding: 1rem 0.5rem;
+  font-weight: bold;
+}
+#link-lista {
+  width: 30%;
+}
+#linkOriginal-lista {
+  max-width: 30%;
+}
+#dataHora {
+  width: 20%;
+}
+#acao {
+  width: 20%;
+}
+.lista thead {
+  font-size: larger;
+  background-color: rgba(0, 0, 0, 0.178);
+}
+
+#linkOriginal-lista {
+  width: 30%;
+  max-width: 200px;
+}
+.lista tbody tr:nth-child(odd) {
+  background-color: rgb(240, 131, 6);
+}
+.acao {
+  display: flex;
+  gap: 2rem;
+}
+.acao img {
+  width: 2rem;
+  cursor: pointer;
+}
+.propriedadeTabela {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 3rem;
+}

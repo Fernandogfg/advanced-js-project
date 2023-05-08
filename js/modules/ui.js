@@ -11,6 +11,8 @@ import {
   whatsapp,
   imgQRCode,
   downloadQR,
+  encurtamento,
+  tabelaLinks,
 } from "./constantes.js";
 
 export function alternaBtnEnviar() {
@@ -87,4 +89,13 @@ export function exibeCodigoQR(codigo) {
   imgQRCode.classList.remove("inativo");
   downloadQR.setAttribute("href", `${imgQRCode.src}`);
   downloadQR.classList.remove('inativo')
+}
+export function escondeEncurtamento (){
+  encurtamento.classList.toggle('inativo')
+}
+export function imprimeLista(lista){
+  for(let link of lista.links){
+    let data = new Date(link.updatedAt)
+    tabelaLinks.innerHTML += `<tr><td>${link.shortURL}</td><td class="propriedadeTabela">${link.originalURL}</td><td>${data.toLocaleDateString()}</td><td class="acao"><img src="assets/icons/edit.svg" title="Editar"><img src="assets/icons/trash.svg" title="Apagar"></td></tr>`
+  }
 }
