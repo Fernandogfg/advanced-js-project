@@ -8,6 +8,7 @@ import {
   btnRedes,
   deletarModal,
   inputUrl,
+  logo,
 } from "./modules/constantes.js";
 import {
   compartilharLink,
@@ -15,7 +16,8 @@ import {
   escondeEncurtamento,
   exibeMsgCopiar,
   exibeRedes,
-  saiModal,
+  home,
+  
 } from "./modules/ui.js";
 
 btnEnviar.addEventListener("click", function () {
@@ -39,4 +41,8 @@ btnOpt.addEventListener("click", function () {
 });
 btnNaoDeletar.addEventListener('click', function(){
   deletarModal.classList.toggle('inativo')
+})
+
+logo.addEventListener('click', function(){
+  home()
 })

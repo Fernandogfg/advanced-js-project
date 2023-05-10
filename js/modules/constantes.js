@@ -11,6 +11,7 @@ export const btnOpt = document.getElementById('opt')
 export const btnSalvar = document.getElementById('salvar')
 export const btnDeletar = document.getElementById('btnDeletar')
 export const btnNaoDeletar = document.getElementById('btnNaoDeletar')
+export const logo = document.getElementById('logo')
 
 //INPUTS
 export const inputUrl = document.getElementById('input-url')
@@ -30,3 +31,5 @@ export const dominio = document.getElementById('dominio')
 export const editar = document.getElementById('editar')
 export const blurClick = document.querySelectorAll('.blur')
 export const deletarModal = document.getElementById('deletar')
+export const tituloEdicao = document.getElementById('tituloEdicao')
+export const tituloApagar = document.getElementById('tituloApagar')

@@ -24,6 +24,8 @@ import {
   blurClick,
   deletarModal,
   btnDeletar,
+  tituloEdicao,
+  tituloApagar,
 } from "./constantes.js";
 
 export function alternaBtnEnviar() {
@@ -110,7 +112,6 @@ export function saiModal() {
   console.log(blurClick);
 
   blurClick.forEach((blur) => {
-    
     blur.addEventListener("click", function () {
       if (!blur.parentElement.classList.contains("inativo")) {
         blur.parentElement.classList.add("inativo");
@@ -118,16 +119,18 @@ export function saiModal() {
     });
   });
 }
-function MostraModalEditar(idString, path, originalURL) {
+function MostraModalEditar(idString, path, originalURL, shortURL) {
   editar.classList.toggle("inativo");
+  tituloEdicao.innerHTML = `Editando <a href="${shortURL}">${shortURL}</a>`;
   inputPath.value = path;
   inputURLModal.value = originalURL;
   saiModal();
   btnSalvar.onclick = () =>
     editaLink(idString, inputPath.value, inputURLModal.value);
 }
-function MostraModalApagar(idString) {
+function MostraModalApagar(idString, shortURL) {
   deletarModal.classList.toggle("inativo");
+  tituloApagar.innerHTML = `Deseja Excluir o link: <a href ="${shortURL}">${shortURL}</a>?`
   saiModal();
   btnDeletar.onclick = () => {
     deletar(idString);
@@ -145,9 +148,11 @@ export function imprimeLista(lista) {
       link.idString
     }' path='${link.path}' originalURL='${
       link.originalURL
-    }' title="Editar"><img idString = '${
+    }' title="Editar" shortURL="${link.shortURL}"><img idString = '${
       link.idString
-    }' class="apagarBtn" src="assets/icons/trash.svg" title="Apagar"></td></tr>`;
+    }' class="apagarBtn" shortURL ="${
+      link.shortURL
+    }" src="assets/icons/trash.svg" title="Apagar"></td></tr>`;
   }
   adicionaEventos();
 }
@@ -158,14 +163,42 @@ function adicionaEventos() {
     const idString = btn.getAttribute("idString");
     const path = btn.getAttribute("path");
     const originalURL = btn.getAttribute("originalURL");
+    const shortURL = btn.getAttribute("shortURL");
     btn.addEventListener("click", function () {
-      MostraModalEditar(idString, path, originalURL);
+      MostraModalEditar(idString, path, originalURL, shortURL);
     });
   });
   apagarBtn.forEach((btn) => {
     const idString = btn.getAttribute("idString");
+    const shortURL = btn.getAttribute('shortURL')
     btn.addEventListener("click", function () {
-      MostraModalApagar(idString);
+      MostraModalApagar(idString, shortURL);
     });
   });
+}
+
+export function home (){
+  if(!gerenciamento.classList.contains('inativo')){
+    gerenciamento.classList.add('inativo')
+  }
+
+  if(encurtamento.classList.contains('inativo')){
+    encurtamento.classList.toggle('inativo')
+  }
+
+  limpaInputLink()
+
+  if(!imgQRCode.classList.contains('inativo')){
+    imgQRCode.classList.toggle('inativo')
+    downloadQR.classList.toggle('inativo')
+  }
+  if(!campoResultado.classList.contains('inativo')){
+    campoResultado.classList.toggle('inativo')
+  }
+  if(!containerBtnCompartilhar.classList.contains('inativo')){
+    containerBtnCompartilhar.classList.toggle('inativo')
+  }
+  if(!redesSociais.classList.contains('inativo')){
+    redesSociais.classList.toggle('inativo')
+  }
 }
