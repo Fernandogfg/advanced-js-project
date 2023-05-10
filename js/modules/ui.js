@@ -26,6 +26,8 @@ import {
   btnDeletar,
   tituloEdicao,
   tituloApagar,
+  msgSucesso,
+  msgErro,
 } from "./constantes.js";
 
 export function alternaBtnEnviar() {
@@ -201,4 +203,22 @@ export function home (){
   if(!redesSociais.classList.contains('inativo')){
     redesSociais.classList.toggle('inativo')
   }
+}
+export function mostraMsgSucesso(){
+  if(msgSucesso.classList.contains('inativo')){
+    msgSucesso.classList.toggle('inativo')
+    setTimeout(()=>{
+      msgSucesso.classList.toggle('inativo')
+    },1500)
+  }
+  
+}
+export function mostraMsgErro(){
+  if(msgErro.classList.contains('inativo')){
+    msgErro.classList.toggle('inativo')
+    setTimeout(()=>{
+      msgErro.classList.toggle('inativo')
+    },1500)
+  }
+  
 }

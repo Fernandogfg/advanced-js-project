@@ -5,6 +5,8 @@ import {
   exibeCodigoQR,
   imprimeLista,
   limpaInputLink,
+  mostraMsgErro,
+  mostraMsgSucesso,
   mostraOpt,
   mostraResposta,
 } from "./ui.js";
@@ -116,8 +118,9 @@ export function editaLink(idString, path, originalURL) {
     .then((response) => {
       editar.classList.toggle("inativo");
       listaLinks();
+      mostraMsgSucesso()
     })
-    .catch((err) => console.error(err));
+    .catch((err) => mostraMsgErro());
 }
 
 export function deletar(idString) {
@@ -128,6 +131,7 @@ export function deletar(idString) {
     .then((response) => {
       listaLinks()
       deletarModal.classList.toggle('inativo')
+      mostraMsgSucesso()
     })
-    .catch((err) => console.error(err));
+    .catch((err) => mostraMsgErro());
 }

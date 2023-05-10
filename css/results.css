@@ -18,3 +18,19 @@
   justify-content: center;
   border-radius: 2rem;
 }
+.msg{
+  width: 90%;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: larger;
+  padding: 2rem 0;
+  position: absolute;
+  
+}
+#msgSucesso{
+  background-color: rgb(29, 255, 29);
+  
+}
+#msgErro{
+  background-color: rgb(208, 0, 0);
+}
