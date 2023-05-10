@@ -1,5 +1,6 @@
 import { EnviaLink, deletar, gerarQR, listaLinks } from "./modules/api.js";
 import {
+  blurClick,
   btnCopiar,
   btnEnviar,
   btnNaoDeletar,
@@ -17,7 +18,6 @@ import {
   exibeMsgCopiar,
   exibeRedes,
   home,
-  
 } from "./modules/ui.js";
 
 btnEnviar.addEventListener("click", function () {
@@ -39,10 +39,19 @@ btnOpt.addEventListener("click", function () {
   escondeEncurtamento();
   listaLinks();
 });
-btnNaoDeletar.addEventListener('click', function(){
-  deletarModal.classList.toggle('inativo')
-})
+btnNaoDeletar.addEventListener("click", function () {
+  deletarModal.classList.toggle("inativo");
+});
 
-logo.addEventListener('click', function(){
-  home()
-})
+logo.addEventListener("click", function () {
+  home();
+});
+document.addEventListener("keydown", function (el) {
+  if (el.key == "Escape") {
+    blurClick.forEach((blur) => {
+      if (!blur.classList.contains("inativo")) {
+        blur.parentElement.classList.add("inativo");
+      }
+    });
+  }
+});

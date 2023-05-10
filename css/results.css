@@ -6,6 +6,7 @@
   border-radius: 4rem;
   font-size: x-large;
   align-items: center;
+  flex-direction: column;
 }
 #sucesso-copiar {
   width: 70%;
@@ -18,19 +19,21 @@
   justify-content: center;
   border-radius: 2rem;
 }
-.msg{
+.msg {
   width: 90%;
   border-radius: 1rem;
   text-align: center;
   font-size: larger;
   padding: 2rem 0;
   position: absolute;
-  
 }
-#msgSucesso{
+#msgSucesso {
   background-color: rgb(29, 255, 29);
-  
 }
-#msgErro{
+#msgErro {
   background-color: rgb(208, 0, 0);
+}
+#dataEncurtamento {
+  
+  font-size: 1.3rem;
 }

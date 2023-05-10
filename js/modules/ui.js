@@ -28,6 +28,7 @@ import {
   tituloApagar,
   msgSucesso,
   msgErro,
+  dataEncurtamento,
 } from "./constantes.js";
 
 export function alternaBtnEnviar() {
@@ -44,6 +45,13 @@ export function mostraResposta(link) {
   linkEncurtado.innerHTML = link;
   linkEncurtado.setAttribute("href", `${link}`);
   linkEncurtado.setAttribute("target", "blank");
+  const dia = new Date().getDate();
+  const mes = new Date().getMonth() + 1;
+  const ano = new Date().getFullYear();
+  const hora = new Date().getHours();
+  const min = new Date().getMinutes();
+  const data = `${dia}/${mes}/${ano}`;
+  dataEncurtamento.innerHTML = `Encurtado em${data} às ${hora}:${min}`;
 }
 
 export function limpaInputLink() {
@@ -65,8 +73,12 @@ export function exibeMsgCopiar() {
   if (sucessoCopiar.classList.contains("inativo")) {
     sucessoCopiar.classList.toggle("inativo");
     setTimeout(() => {
-      sucessoCopiar.classList.toggle("inativo");
+      sucessoCopiar.classList.toggle("animate__fadeOut");
     }, 1000);
+    setTimeout(() => {
+      sucessoCopiar.classList.toggle("inativo");
+      sucessoCopiar.classList.remove("animate__fadeOut");
+    }, 2000);
   }
 }
 export function exibeRedes() {
@@ -111,8 +123,6 @@ export function escondeEncurtamento() {
   dominio.innerHTML = `Domínio: <a href="${config.API_DOMAIN}">${config.API_DOMAIN}</a>`;
 }
 export function saiModal() {
-  console.log(blurClick);
-
   blurClick.forEach((blur) => {
     blur.addEventListener("click", function () {
       if (!blur.parentElement.classList.contains("inativo")) {
@@ -132,7 +142,7 @@ function MostraModalEditar(idString, path, originalURL, shortURL) {
 }
 function MostraModalApagar(idString, shortURL) {
   deletarModal.classList.toggle("inativo");
-  tituloApagar.innerHTML = `Deseja Excluir o link: <a href ="${shortURL}">${shortURL}</a>?`
+  tituloApagar.innerHTML = `Deseja Excluir o link: <a href ="${shortURL}">${shortURL}</a>?`;
   saiModal();
   btnDeletar.onclick = () => {
     deletar(idString);
@@ -172,53 +182,57 @@ function adicionaEventos() {
   });
   apagarBtn.forEach((btn) => {
     const idString = btn.getAttribute("idString");
-    const shortURL = btn.getAttribute('shortURL')
+    const shortURL = btn.getAttribute("shortURL");
     btn.addEventListener("click", function () {
       MostraModalApagar(idString, shortURL);
     });
   });
 }
 
-export function home (){
-  if(!gerenciamento.classList.contains('inativo')){
-    gerenciamento.classList.add('inativo')
+export function home() {
+  if (!gerenciamento.classList.contains("inativo")) {
+    gerenciamento.classList.add("inativo");
   }
 
-  if(encurtamento.classList.contains('inativo')){
-    encurtamento.classList.toggle('inativo')
+  if (encurtamento.classList.contains("inativo")) {
+    encurtamento.classList.toggle("inativo");
   }
 
-  limpaInputLink()
+  limpaInputLink();
 
-  if(!imgQRCode.classList.contains('inativo')){
-    imgQRCode.classList.toggle('inativo')
-    downloadQR.classList.toggle('inativo')
+  if (!imgQRCode.classList.contains("inativo")) {
+    imgQRCode.classList.toggle("inativo");
+    downloadQR.classList.toggle("inativo");
   }
-  if(!campoResultado.classList.contains('inativo')){
-    campoResultado.classList.toggle('inativo')
+  if (!campoResultado.classList.contains("inativo")) {
+    campoResultado.classList.toggle("inativo");
   }
-  if(!containerBtnCompartilhar.classList.contains('inativo')){
-    containerBtnCompartilhar.classList.toggle('inativo')
+  if (!containerBtnCompartilhar.classList.contains("inativo")) {
+    containerBtnCompartilhar.classList.toggle("inativo");
   }
-  if(!redesSociais.classList.contains('inativo')){
-    redesSociais.classList.toggle('inativo')
+  if (!redesSociais.classList.contains("inativo")) {
+    redesSociais.classList.toggle("inativo");
   }
 }
-export function mostraMsgSucesso(){
-  if(msgSucesso.classList.contains('inativo')){
-    msgSucesso.classList.toggle('inativo')
-    setTimeout(()=>{
-      msgSucesso.classList.toggle('inativo')
-    },1500)
+export function mostraMsgSucesso() {
+  if (msgSucesso.classList.contains("inativo")) {
+    msgSucesso.classList.toggle("inativo");
+    setTimeout(() => {
+      msgSucesso.classList.add("animate__fadeOut");
+    }, 1500);
+    setTimeout(() => {
+      msgSucesso.classList.add("inativo");
+      msgSucesso.classList.remove("animate__fadeOut");
+    }, 2000);
   }
-  
 }
-export function mostraMsgErro(){
-  if(msgErro.classList.contains('inativo')){
-    msgErro.classList.toggle('inativo')
-    setTimeout(()=>{
-      msgErro.classList.toggle('inativo')
-    },1500)
+export function mostraMsgErro() {
+  if (msgErro.classList.contains("inativo")) {
+    msgErro.classList.toggle("inativo");
+    setTimeout(() => {
+      msgErro.classList.toggle("inativo");
+    }, 1500);
   }
-  
 }
+
+

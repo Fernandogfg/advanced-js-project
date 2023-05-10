@@ -13,10 +13,9 @@
     />
     <script src="js/index.js" type="module" defer></script>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <div id="body">
@@ -39,7 +38,10 @@
             ></span>
           </button>
         </div>
-        <div class="inativo" id="container-link"><a id="link"></a></div>
+        <div class="inativo" id="container-link">
+          <a id="link"></a>
+          <p id="dataEncurtamento"></p>
+        </div>
 
         <div id="compartilhar">
           <div id="container-btn" class="inativo">
@@ -54,7 +56,10 @@
             </button>
           </div>
 
-          <div id="sucesso-copiar" class="inativo">
+          <div
+            id="sucesso-copiar"
+            class="inativo animate__animated animate__fadeIn"
+          >
             <img src="assets/icons/check.svg" /> Copiado com sucesso!
           </div>
           <div id="redesSociais" class="inativo">
@@ -82,8 +87,15 @@
           <h2>Gerenciar Links</h2>
           <p id="dominio">asdas</p>
         </div>
-        <div id="msgSucesso" class="inativo animate__animated animate__fadeIn msg">Operação executada com sucesso</div>
-        <div id="msgErro" class="inativo animate__animated animate__fadeIn msg">Ocorreu um erro, tente novamente</div>
+        <div
+          id="msgSucesso"
+          class="inativo animate__animated animate__fadeIn msg"
+        >
+          Operação executada com sucesso
+        </div>
+        <div id="msgErro" class="inativo animate__animated animate__fadeIn msg">
+          Ocorreu um erro, tente novamente
+        </div>
         <table class="lista">
           <thead>
             <tr>
@@ -98,7 +110,7 @@
         <div class="inativo" id="editar">
           <div class="blur"></div>
           <div class="modal">
-            <h3 id="tituloEdicao" >asdasd</h3>
+            <h3 id="tituloEdicao">Editar link</h3>
             <label>Path (Slug): <input type="text" id="inputPath" /></label>
             <label
               >URL Original: <input type="text" id="inputURLModal"
@@ -119,6 +131,5 @@
       </section>
     </div>
     <footer></footer>
-    
   </body>
 </html>
