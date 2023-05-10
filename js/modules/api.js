@@ -1,5 +1,5 @@
 import { config } from "./config.js";
-import { imgQRCode } from "./constantes.js";
+import { deletarModal, editar, imgQRCode } from "./constantes.js";
 import {
   alternaBtnEnviar,
   exibeCodigoQR,
@@ -78,17 +78,56 @@ export function gerarQR() {
     })
     .catch((err) => alert(err));
 }
-const optionsListaLinks = {method: 'GET', headers: {accept: 'application/json',
-authorization: `${config.API_KEY}`}};
+const optionsListaLinks = {
+  method: "GET",
+  headers: { accept: "application/json", authorization: `${config.API_KEY}` },
+};
 
-
-export function listaLinks (){
-  fetch('https://api.short.io/api/links?domain_id=710819&limit=5&dateSortOrder=desc', optionsListaLinks)
-  .then(response => response.json())
-  .then((response)=>{
-    console.log(response);
-    imprimeLista(response)
-  })
-  .catch(err => console.error(err));
+export function listaLinks() {
+  fetch(
+    "https://api.short.io/api/links?domain_id=710819&limit=5&dateSortOrder=desc",
+    optionsListaLinks
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      imprimeLista(response);
+    })
+    .catch((err) => console.error(err));
 }
-listaLinks()
+export function editaLink(idString, path, originalURL) {
+  console.log(idString, path, originalURL);
+  const options = {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+      authorization: `${config.API_KEY}`,
+    },
+    body: JSON.stringify({ originalURL: `${originalURL}`, path: `${path}` }),
+  };
+  fetch(`https://api.short.io/links/${idString}`, options)
+    .then((response) => {
+      if (response.status == 200 && response.ok) {
+        console.log(response);
+        return response.json();
+      }
+      throw new Error("erro");
+    })
+    .then((response) => {
+      editar.classList.toggle("inativo");
+      listaLinks();
+    })
+    .catch((err) => console.error(err));
+}
+
+export function deletar(idString) {
+  const options = { method: "DELETE",headers: {authorization: `${config.API_KEY}`} };
+
+  fetch(`https://api.short.io/links/${idString}`, options)
+    .then((response) => response.json())
+    .then((response) => {
+      listaLinks()
+      deletarModal.classList.toggle('inativo')
+    })
+    .catch((err) => console.error(err));
+}

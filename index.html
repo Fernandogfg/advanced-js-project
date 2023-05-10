@@ -11,6 +11,8 @@
       href="assets/icons/logo.jpg"
       type="image/x-icon"
     />
+    <script src="js/index.js" type="module" defer></script>
+    
   </head>
   <body>
     <div id="body">
@@ -71,28 +73,46 @@
           >Download PNG</a
         >
       </section>
-      <section id="gerenciamento">
+      <section id="gerenciamento" class="inativo">
         <div id="gerenciamentoTitulo">
           <h2>Gerenciar Links</h2>
           <p id="dominio">asdas</p>
         </div>
         <table class="lista">
           <thead>
-            
             <tr>
-              <td id="link-lista"><p>Link Encurtado</p> </td>
+              <td id="link-lista"><p>Link Encurtado</p></td>
               <td id="linkOriginal-lista"><p>Link Original</p></td>
               <td id="dataHora">Data/Hora</td>
               <td id="acao">Ação</td>
             </tr>
           </thead>
-          <tbody id="resultadoTabela">
-            
-          </tbody>
+          <tbody id="resultadoTabela"></tbody>
         </table>
+        <div class="inativo" id="editar">
+          <div class="blur"></div>
+          <div class="modal">
+            <h3>asdasd</h3>
+            <label>Path (Slug): <input type="text" id="inputPath" /></label>
+            <label
+              >URL Original: <input type="text" id="inputURLModal"
+            /></label>
+            <button class="btn-salvar" id="salvar">Salvar</button>
+          </div>
+        </div>
+        <div id="deletar" class="inativo">
+          <div class="blur"></div>
+          <div class="modal">
+            <h3>Deletar</h3>
+            <div id="container-btn-deletar">
+              <button class="btnModal" id="btnDeletar">Sim</button>
+              <button class="btnModal" id="btnNaoDeletar">Não</button>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
     <footer></footer>
-    <script src="js/index.js" type="module"></script>
+    
   </body>
 </html>

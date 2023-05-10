@@ -1,10 +1,11 @@
 @import url(constantes.css);
-@import url(grid.css);
+
 @import url(header.css);
 @import url(input.css);
 @import url(buttons.css);
 @import url(results.css);
 @import url(table.css);
+@import url(modal.css);
 /* * {
   outline: 1px solid rgba(255, 0, 0, 0.302);
 } */
@@ -76,5 +77,8 @@ footer {
   }
   .lista {
     width: 60%;
+  }
+  .modal {
+    width: 46%;
   }
 }

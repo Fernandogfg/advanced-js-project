@@ -75,3 +75,24 @@
   cursor: pointer;
 }
 
+.btn-salvar {
+  justify-self: center;
+  border: 0;
+  border-radius: 1rem;
+  background-color: rgb(205, 117, 17);
+  height: 5rem;
+  padding: 1rem 2rem;
+  font-size: large;
+}
+.btn-salvar:active {
+  background-color: rgb(178, 102, 14);
+}
+
+#deletar .modal {
+  justify-content: center;
+}
+#container-btn-deletar {
+  display: flex;
+  width: 100%;
+  gap: 10%;
+}

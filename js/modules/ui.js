@@ -1,3 +1,5 @@
+import { deletar, editaLink } from "./api.js";
+import { config } from "./config.js";
 import {
   campoResultado,
   btnEnviar,
@@ -13,6 +15,15 @@ import {
   downloadQR,
   encurtamento,
   tabelaLinks,
+  dominio,
+  gerenciamento,
+  editar,
+  inputPath,
+  inputURLModal,
+  btnSalvar,
+  blurClick,
+  deletarModal,
+  btnDeletar,
 } from "./constantes.js";
 
 export function alternaBtnEnviar() {
@@ -57,7 +68,7 @@ export function exibeMsgCopiar() {
 export function exibeRedes() {
   if (!imgQRCode.classList.contains("inativo")) {
     imgQRCode.classList.add("inativo");
-    downloadQR.classList.add('inativo')
+    downloadQR.classList.add("inativo");
   }
   redesSociais.classList.toggle("inativo");
 }
@@ -88,14 +99,73 @@ export function exibeCodigoQR(codigo) {
   imgQRCode.src = `${imgURL}`;
   imgQRCode.classList.remove("inativo");
   downloadQR.setAttribute("href", `${imgQRCode.src}`);
-  downloadQR.classList.remove('inativo')
+  downloadQR.classList.remove("inativo");
 }
-export function escondeEncurtamento (){
-  encurtamento.classList.toggle('inativo')
+export function escondeEncurtamento() {
+  encurtamento.classList.toggle("inativo");
+  gerenciamento.classList.toggle("inativo");
+  dominio.innerHTML = `Domínio: <a href="${config.API_DOMAIN}">${config.API_DOMAIN}</a>`;
 }
-export function imprimeLista(lista){
-  for(let link of lista.links){
-    let data = new Date(link.updatedAt)
-    tabelaLinks.innerHTML += `<tr><td>${link.shortURL}</td><td class="propriedadeTabela">${link.originalURL}</td><td>${data.toLocaleDateString()}</td><td class="acao"><img src="assets/icons/edit.svg" title="Editar"><img src="assets/icons/trash.svg" title="Apagar"></td></tr>`
+export function saiModal() {
+  console.log(blurClick);
+
+  blurClick.forEach((blur) => {
+    
+    blur.addEventListener("click", function () {
+      if (!blur.parentElement.classList.contains("inativo")) {
+        blur.parentElement.classList.add("inativo");
+      }
+    });
+  });
+}
+function MostraModalEditar(idString, path, originalURL) {
+  editar.classList.toggle("inativo");
+  inputPath.value = path;
+  inputURLModal.value = originalURL;
+  saiModal();
+  btnSalvar.onclick = () =>
+    editaLink(idString, inputPath.value, inputURLModal.value);
+}
+function MostraModalApagar(idString) {
+  deletarModal.classList.toggle("inativo");
+  saiModal();
+  btnDeletar.onclick = () => {
+    deletar(idString);
+  };
+}
+export function imprimeLista(lista) {
+  tabelaLinks.innerHTML = "";
+  for (let link of lista.links) {
+    let data = new Date(link.updatedAt);
+    tabelaLinks.innerHTML += `<tr><td>${
+      link.shortURL
+    }</td><td class="propriedadeTabela">${
+      link.originalURL
+    }</td><td>${data.toLocaleDateString()}</td><td class="acao"><img src="assets/icons/edit.svg" class='editBtn' idString='${
+      link.idString
+    }' path='${link.path}' originalURL='${
+      link.originalURL
+    }' title="Editar"><img idString = '${
+      link.idString
+    }' class="apagarBtn" src="assets/icons/trash.svg" title="Apagar"></td></tr>`;
   }
+  adicionaEventos();
+}
+function adicionaEventos() {
+  let editBtn = document.querySelectorAll(".editBtn");
+  let apagarBtn = document.querySelectorAll(".apagarBtn");
+  editBtn.forEach((btn) => {
+    const idString = btn.getAttribute("idString");
+    const path = btn.getAttribute("path");
+    const originalURL = btn.getAttribute("originalURL");
+    btn.addEventListener("click", function () {
+      MostraModalEditar(idString, path, originalURL);
+    });
+  });
+  apagarBtn.forEach((btn) => {
+    const idString = btn.getAttribute("idString");
+    btn.addEventListener("click", function () {
+      MostraModalApagar(idString);
+    });
+  });
 }
